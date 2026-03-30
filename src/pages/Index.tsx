@@ -9,10 +9,12 @@ import { TrustSection } from "@/components/landing/TrustSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
 import { FinalCTASection } from "@/components/landing/FinalCTASection";
 import { Footer } from "@/components/landing/Footer";
+import { SlotsPopup } from "@/components/landing/SlotsPopup";
 
 const Index = () => (
   <div className="min-h-screen">
     <Navbar />
+    <SlotsPopup />
     <main className="pt-16">
       <HeroSection />
       <ProblemSection />
