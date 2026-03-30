@@ -41,8 +41,8 @@
     --hero-foreground: 210 20% 95%;
     --cta-gradient: linear-gradient(135deg, hsl(155 80% 40%), hsl(155 90% 32%));
     --cta-glow: 0 8px 32px -8px hsl(155 80% 40% / 0.5);
-    --card-shadow: 0 4px 24px -4px hsl(220 30% 10% / 0.08);
-    --card-hover-shadow: 0 8px 40px -8px hsl(220 30% 10% / 0.14);
+    --card-shadow: 0 1px 3px hsl(220 30% 10% / 0.04), 0 4px 24px -4px hsl(220 30% 10% / 0.06);
+    --card-hover-shadow: 0 8px 40px -8px hsl(220 30% 10% / 0.12);
     --section-alt: 210 20% 96%;
     --badge-bg: 155 80% 40% / 0.1;
     --badge-text: 155 70% 30%;
@@ -76,11 +76,11 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(155 80% 40%), hsl(155 90% 28%));
+    background-image: linear-gradient(135deg, hsl(155 80% 45%), hsl(160 85% 32%));
   }
 
   .section-padding {
-    @apply py-20 md:py-28 px-4 md:px-8;
+    @apply py-24 md:py-32 px-4 md:px-8;
   }
 
   .cta-gradient {
@@ -90,11 +90,32 @@
 
   .card-elevated {
     box-shadow: var(--card-shadow);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-elevated:hover {
     box-shadow: var(--card-hover-shadow);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+  }
+
+  .section-label {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/60 rounded-2xl;
+    box-shadow: var(--card-shadow);
+  }
+
+  .divider-line {
+    @apply h-px w-16 bg-accent/40 mx-auto;
   }
 }
