@@ -10,37 +10,27 @@ const badges = [
   { icon: Award, label: "ROI Guaranteed" },
 ];
 
+const scrollToForm = () => {
+  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+};
+
 export const HeroSection = () => (
   <section className="relative overflow-hidden min-h-[92vh] flex items-center text-hero-foreground">
-    {/* Background image with Ken Burns */}
     <motion.div
       className="absolute inset-0 z-0"
       animate={{ scale: [1, 1.06, 1] }}
       transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
     >
-      <img
-        src={heroBg}
-        alt=""
-        width={1920}
-        height={1080}
-        className="w-full h-full object-cover"
-      />
+      <img src={heroBg} alt="" width={1920} height={1080} className="w-full h-full object-cover" />
     </motion.div>
 
-    {/* Overlays */}
     <div className="absolute inset-0 z-[1] bg-hero/80" />
     <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_top_right,hsl(155_80%_40%/0.08),transparent_60%)]" />
     <div className="absolute bottom-0 left-0 right-0 h-32 z-[2] bg-gradient-to-t from-hero to-transparent" />
 
     <div className="container mx-auto px-4 md:px-8 relative z-10 py-20">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Left */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-8"
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="space-y-8">
           <div className="section-label">
             <Zap className="h-3.5 w-3.5" />
             Lead Generation on Autopilot
@@ -56,10 +46,10 @@ export const HeroSection = () => (
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <Button variant="cta" size="lg" className="text-base px-8 py-6 animate-pulse-glow">
+            <Button variant="cta" size="lg" className="text-base px-8 py-6 animate-pulse-glow" onClick={scrollToForm}>
               Get More Inquiries <ArrowRight className="h-5 w-5 ml-1" />
             </Button>
-            <Button variant="hero-secondary" size="lg" className="text-base px-8 py-6">
+            <Button variant="hero-secondary" size="lg" className="text-base px-8 py-6" onClick={scrollToForm}>
               Book a Demo
             </Button>
           </div>
@@ -74,12 +64,7 @@ export const HeroSection = () => (
           </div>
         </motion.div>
 
-        {/* Right - Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <motion.div id="lead-form" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <LeadForm />
         </motion.div>
       </div>

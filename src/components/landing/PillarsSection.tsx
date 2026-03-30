@@ -23,44 +23,29 @@ const pillars = [
   },
 ];
 
+const scrollToForm = () => {
+  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+};
+
 export const PillarsSection = () => (
   <section id="how" className="section-padding bg-background relative">
     <div className="container mx-auto max-w-6xl">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-16 space-y-5"
-      >
+      <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16 space-y-5">
         <span className="section-label">What We Do</span>
-        <h2 className="section-title">
-          We Build <span className="text-gradient">Inquiry Machines</span>
-        </h2>
-        <p className="section-subtitle">
-          Three integrated pillars that work together to generate consistent, qualified leads for your business.
-        </p>
+        <h2 className="section-title">We Build <span className="text-gradient">Inquiry Machines</span></h2>
+        <p className="section-subtitle">Three integrated pillars that work together to generate consistent, qualified leads for your business.</p>
       </motion.div>
 
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-14">
         {pillars.map(({ icon: Icon, title, desc, features }, i) => (
-          <motion.div
-            key={title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.12 }}
-            className="group bg-card rounded-2xl border border-border/50 card-elevated overflow-hidden"
-          >
-            {/* Accent top bar */}
+          <motion.div key={title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.12 }} className="group bg-card rounded-2xl border border-border/50 card-elevated overflow-hidden">
             <div className="h-1 bg-accent/60" />
-            
             <div className="p-8">
               <div className="h-14 w-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:scale-105 transition-all duration-300">
                 <Icon className="h-7 w-7 text-accent" />
               </div>
               <h3 className="text-xl font-bold text-card-foreground mb-3">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">{desc}</p>
-              
               <ul className="space-y-2.5">
                 {features.map((f) => (
                   <li key={f} className="flex items-center gap-2.5 text-sm text-muted-foreground">
@@ -75,7 +60,7 @@ export const PillarsSection = () => (
       </div>
 
       <div className="text-center">
-        <Button variant="cta" size="lg" className="text-base px-10 py-6">
+        <Button variant="cta" size="lg" className="text-base px-10 py-6" onClick={scrollToForm}>
           See How It Works
         </Button>
       </div>
