@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const scrollToForm = () => {
+  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+};
+
 export const SlotsPopup = () => {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -34,26 +38,21 @@ export const SlotsPopup = () => {
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
           className="fixed bottom-6 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] rounded-2xl border border-accent/20 bg-card p-5 shadow-2xl shadow-accent/10"
         >
-          <button
-            onClick={close}
-            className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors"
-          >
+          <button onClick={close} className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors">
             <X className="h-4 w-4" />
           </button>
 
           <div className="flex items-center gap-2 mb-3">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-destructive" />
             </span>
-            <span className="text-xs font-semibold uppercase tracking-wider text-red-500">
+            <span className="text-xs font-semibold uppercase tracking-wider text-destructive">
               Limited Availability
             </span>
           </div>
 
-          <h4 className="text-lg font-bold text-foreground mb-1">
-            Only 3 Slots Left This Month
-          </h4>
+          <h4 className="text-lg font-bold text-foreground mb-1">Only 3 Slots Left This Month</h4>
           <p className="text-sm text-muted-foreground mb-4">
             We only take on a limited number of clients to ensure quality results. Secure your spot now.
           </p>
@@ -67,7 +66,7 @@ export const SlotsPopup = () => {
             </span>
           </div>
 
-          <Button variant="cta" size="sm" className="w-full" onClick={close}>
+          <Button variant="cta" size="sm" className="w-full" onClick={() => { scrollToForm(); close(); }}>
             Claim Your Spot
           </Button>
         </motion.div>
