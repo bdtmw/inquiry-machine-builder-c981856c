@@ -1,4 +1,5 @@
 import { Mail, Phone } from "lucide-react";
+import logo from "../../assets/logo.png";
 
 export const Footer = () => (
   <footer className="bg-hero text-hero-foreground py-14 px-4 border-t border-hero-foreground/10">
@@ -6,9 +7,11 @@ export const Footer = () => (
       <div className="grid md:grid-cols-3 gap-10 mb-10">
         {/* Brand */}
         <div>
-          <a href="/" className="text-xl font-bold text-hero-foreground tracking-tight">
-            ENQS<span className="text-accent">.com</span>
-          </a>
+           <img
+        src={logo}
+        alt="ihatemoving logo"
+        className="h-10 w-auto object-contain"
+      />
           <p className="text-sm text-hero-foreground/40 mt-3 leading-relaxed max-w-xs">
             Done-for-you lead generation systems that help businesses get more inquiries and close more deals.
           </p>
