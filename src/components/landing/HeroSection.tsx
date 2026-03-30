@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LeadForm } from "./LeadForm";
 import { Shield, Zap, Award } from "lucide-react";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const badges = [
   { icon: Shield, label: "Trusted by 50+ businesses" },
@@ -10,8 +11,28 @@ const badges = [
 ];
 
 export const HeroSection = () => (
-  <section className="bg-hero text-hero-foreground relative overflow-hidden">
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(155_80%_40%/0.08),transparent_60%)]" />
+  <section className="relative overflow-hidden min-h-[90vh] flex items-center text-hero-foreground">
+    {/* Animated background image */}
+    <motion.div
+      className="absolute inset-0 z-0"
+      animate={{ scale: [1, 1.08, 1] }}
+      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <img
+        src={heroBg}
+        alt=""
+        width={1920}
+        height={1080}
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+
+    {/* Dark overlay for readability */}
+    <div className="absolute inset-0 z-[1] bg-hero/75" />
+
+    {/* Gradient accent overlay */}
+    <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_top_right,hsl(155_80%_40%/0.1),transparent_60%)]" />
+
     <div className="container mx-auto section-padding relative z-10">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left */}
