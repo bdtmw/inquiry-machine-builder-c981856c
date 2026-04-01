@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const metrics = [
   { icon: TrendingUp, value: "327+", label: "Inquiries Generated", sub: "in the last 60 days" },
   { icon: Users, value: "50+", label: "Businesses Served", sub: "across 12+ industries" },
-  { icon: Clock, value: "< 48hrs", label: "Average Launch Time", sub: "from onboarding to live" },
+  { icon: Clock, value: "Under 48hrs", label: "Average Launch Time", sub: "from onboarding to live" },
 ];
 
 const testimonials = [
